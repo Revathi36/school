@@ -1,0 +1,34 @@
+# school
+program for school administration 
+import cvs
+
+def write_info_cvs(info_list):
+ with open('student_info.cvs','a',newline=' ')as cvs_file:
+     writer=cvs.writer(cvs_file)
+
+     if cvs_file.tell()==0:
+         writer.writer_row(["name","age","phone_number","address","email_id"])
+
+         writer.writer_row(info_list)
+if _name_=='_main_':
+    condition = True
+    student_num = 1
+
+    while(condition):
+        student_info = input("enter the student detail #[]: ".format(student_num))
+        student_info_list = student_info.split(' ')
+        print("\n the entered informayion is \nname: []\nage: []\nphonemumber: []\naddress: []\nemail_id: []"
+              .f0rmat(student_info_list[0],student_info_list[1],student_info_list[2],student_info_list[3],student_info_list[4] )
+
+    choise_check = input("is entered value is right (yes/no): ")
+              if choise_check == "yes":
+                write_info_cvs(student_info_list)
+
+              condition_check = ("enter yes if you want to enter additional student information: ")
+              if condition_check == "yes":
+              condition = True
+              student_num = student_num + 1
+              elif condition_check == "no":
+                  condition = False
+                  elif choise_check == "no":
+                      print("\n please re-enter the valuse: ")
